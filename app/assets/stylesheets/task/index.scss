@@ -1,0 +1,55 @@
+.temporary-image{
+	width: 100%;
+	height: 900px;
+	background-image: url(/assets/img/desert.jpg);
+}
+.testes{
+	transition: 0.4s;
+	font-size:20px;
+}
+.testes:hover{
+	border-bottom: 1px solid black;
+}
+.task-view{
+	height: 200px;
+}
+// #mycharts{
+// 	width: 200px;
+// 	height: 200px;
+// }
+.bar-chart{
+	width: 60%;
+	display: flex;
+	position: relative;
+	margin-top: 40px;
+}
+.status-marker{
+	position: absolute;
+	top: -15px;
+	left: 50px;
+	width: 15px;
+	height: 15px;
+	// background-color: white;
+	border-top: 15px solid #595959;
+  	border-right: 10px solid transparent;
+  	border-left: 10px solid transparent;
+	// border-radius: 15px 15px;
+	// z-index: 1;
+}
+.bar-first,.bar-second,.bar-third{
+	width: 33%;
+	height: 30px;
+}
+.bar-first{
+	background-color: #40BFB0;
+	border-top-left-radius: 60px 60px;
+	border-bottom-left-radius: 60px 60px;
+}
+.bar-second{
+	background-color: #F3C759;
+}
+.bar-third{
+	background-color: #DA5019;
+	border-top-right-radius: 60px 60px;
+	border-bottom-right-radius: 60px 60px;
+}

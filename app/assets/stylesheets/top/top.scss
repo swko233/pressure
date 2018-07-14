@@ -1,0 +1,63 @@
+// Place all the styles related to the root controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+h1{
+	margin-bottom: 20px;
+	font-family: 'GeosansLight';
+}
+.main-visual{
+	background-image: url(/assets/img/desert.jpg);
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	  /* 上下中央寄せ */
+  	-webkit-box-align: center;
+  	-ms-flex-align: center;
+  	align-items: center;
+}
+.background{
+	background: rgba(255,255,255,0.85);
+	height: 400px;
+	min-width: 720px;
+	display: flex;
+	align-items: center;
+}
+.box{
+	margin-left: 144px;
+	padding-right: 72px;
+	color: #1D4254;
+}
+.register,.sign-in{
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.register{
+	background: #1D4254;
+	color: #fff;
+	border-color: #1D4254;
+	border-radius: 0;
+}
+.register:hover{
+	background: #1D4254;
+}
+.sign-in{
+	background: #fff;
+	border-radius: 0;
+	border-color: #fff;
+	color: #1D4254;
+	transition: background .2s ease-in-out,color .2s ease-in-out;
+	// transition: border-color .2s ease-in-out,color .2s ease-in-out;
+}
+.sign-in:hover{
+	background: #1D4254;
+	border-color: #1D4254;
+	color: #FFF;
+}
+.contents{
+	background-image: url(img/italy.jpg);
+	width: 100vw;
+	height: 100vh;
+}

@@ -1,0 +1,53 @@
+<%= stylesheet_link_tag "user/show", :media => "all" %>
+<%= javascript_include_tag "users_show.js" %>
+
+<!-- インフォグラフィック -->
+
+<div class="body">
+	<div class="overview">
+		<div id="scene-2-content">
+			<div class="charts clearfix">
+				<div class="chart" id="water">
+					<div class="circle-mask-outer left">
+						<div class="circle-mask-inner">
+							<div class="circle-body"></div>
+						</div>
+					</div>
+					<div class="circle-mask-outer right">
+						<div class="circle-mask-inner">
+							<div class="circle-body"></div>
+						</div>
+					</div>
+					<div class="chart-content">
+						<!-- <img class="icon" src="/assets/users_show/graphic-water.png" alt="water"> -->
+						<p class="text">
+							<span class="percent-number">60</span>
+							<span class="percent-symbol">%</span>
+						</p>
+					</div>
+				</div>
+				<div class="chart" id="sunshine">
+					<div class="circle-mask-outer left">
+						<div class="circle-mask-inner">
+							<div class="circle-body"></div>
+						</div>
+					</div>
+					<div class="circle-mask-outer right">
+						<div class="circle-mask-inner">
+							<div class="circle-body"></div>
+						</div>
+					</div>
+					<div class="chart-content">
+						<!-- <img class="icon" src="/assets/users_show/graphic-sun.png" alt="sunshine"> -->
+						<p class="text">
+							<span class="percent-number">60</span>
+							<span class="percent-symbol">%</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<h1>Users#show</h1>
+<p>予定リストの詳しい情報を表示</p>

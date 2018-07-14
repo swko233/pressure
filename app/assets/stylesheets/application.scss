@@ -1,0 +1,263 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans Japanese';
+}
+a{
+    color: black;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.body{
+    margin-top: 60px; //ヘッダー対策
+    padding-top: 20px;
+}
+.btn-custom{
+    background: #fff;
+    color: #3E8CB3;
+    border-color: #3E8CB3;
+    border-width: 1.5px;
+    border-radius: 0;
+    padding: 7px 20px;
+}
+.actions{
+    padding-top: 20px;
+}
+@font-face {
+font-family: 'GeosansLight';
+font-style: normal;
+font-weight: normal;
+src: local('GeosansLight'), url('GeosansLight.woff') format('woff');
+}
+@font-face {
+font-family: 'GeosansLight-Oblique';
+font-style: normal;
+font-weight: normal;
+src: local('GeosansLight-Oblique'), url('GeosansLight-Oblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 100;
+    src: url('NotoSansCJKjp-Thin.eot'); /* IE9 Compat Modes */
+    src: url('NotoSansCJKjp-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('NotoSansCJKjp-Thin.woff') format('woff'), /* Modern Browsers */
+    url('NotoSansCJKjp-Thin.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 200;
+    src: url('NotoSansCJKjp-Light.eot');
+    src: url('NotoSansCJKjp-Light.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-Light.woff') format('woff'),
+    url('NotoSansCJKjp-Light.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 300;
+    src: url('NotoSansCJKjp-DemiLight.eot');
+    src: url('NotoSansCJKjp-DemiLight.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-DemiLight.woff') format('woff'),
+    url('NotoSansCJKjp-DemiLight.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 400;
+    src: url('NotoSansCJKjp-Regular.eot');
+    src: url('NotoSansCJKjp-Regular.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-Regular.woff') format('woff'),
+    url('NotoSansCJKjp-Regular.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 500;
+    src: url('NotoSansCJKjp-Medium.eot');
+    src: url('NotoSansCJKjp-Medium.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-Medium.woff') format('woff'),
+    url('NotoSansCJKjp-Medium.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 700;
+    src: url('NotoSansCJKjp-Bold.eot');
+    src: url('NotoSansCJKjp-Bold.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-Bold.woff') format('woff'),
+    url('NotoSansCJKjp-Bold.ttf')  format('truetype');
+}
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 900;
+    src: url('NotoSansCJKjp-Black.eot');
+    src: url('NotoSansCJKjp-Black.eot?#iefix') format('embedded-opentype'),
+    url('NotoSansCJKjp-Black.woff') format('woff'),
+    url('NotoSansCJKjp-Black.ttf')  format('truetype');
+}
+
+.row{
+	background-position: center;
+	background-size: cover;
+}
+
+// ヘッダー
+.follow-header{
+    // 移動対応
+	position: absolute;
+	top: 0;
+	left: 0;
+    //デザイン
+    width: 100%;
+    height: 60px;
+	background-color: white;
+	font-weight: 200;
+    opacity: 1;
+    // 上下中央揃え
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.follow-header *{
+    font-family: "GeosansLight",sans-serif;
+}
+.menu-wrap,.sign-out{
+    letter-spacing: 0.15em;
+}
+.menu-wrap{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-left: 25px;
+
+}
+.menu-logo{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 35px;
+    letter-spacing: 0.2em;
+}
+.menu-list,.sign-out{
+    font-size: 17px;
+}
+.menu-list{
+	color: black;
+	display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+.menu-list a:hover:not(.new-task-icon){
+    border-bottom: solid 1px black;
+}
+.menu-list a{
+    transition: 0.6s;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    // display: inline-block;
+    // transition-property: all;
+}
+.new-task-icon{
+    color: black;
+    width: 30px;
+    height: 30px;
+    padding-left: 10px;
+    // padding-bottom: -20px;
+}
+.sign-out{
+    margin-right: 35px;
+}
+// ヘッダーここまで
+
+
+li{
+    text-decoration: none;
+}
+@keyframes enter{
+	0%{
+		top: -60px;
+	}
+	100%{
+		top: 0px;
+	}
+}
+@keyframes leave{
+	0%{
+		top: 0px;
+	}
+	100%{
+		top: -60px;
+	}
+}
+.follow-header.is-open{
+	position: fixed;
+	animation: enter 0.5s ease-in;
+	top: 0;
+}
+.follow-header.is-close{
+	position: fixed;
+	animation: leave 0.5s ease-in;
+	top: -60px;
+}
+
+
+
+/*.hidebar{*/
+	/*transform: translateY(-100%);*/
+	/*transform: translateY(-100px);*/
+	/*position: fixed;*/
+	/*animation: leave 0.3s ease-out;*/
+	/*top: 0;*/
+/*}*/
+/*.activebar{*/
+	/*position: fixed;*/
+	/*animation: enter 0.3s ease-out;*/
+	/*top: -50px;*/
+/*}*/

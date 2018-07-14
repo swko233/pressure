@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag "task/new", :media => "all" %>
+<%= javascript_include_tag "tasks_new.js" %>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<div class="body">
+	<!-- <div class="container"> -->
+		<div class="form-wrap">
+			<div class="form-text">
+				<h2 class="new-task">New Task!!</h2>
+				<%= form_for(@task) do |f| %>
+					<div class="field field-first">
+						<p><%= f.label :schedule,"予定",autocomplete: 'off' %></p>
+						<%= f.text_field :schedule %>
+					</div>
+					<div class="field">
+						<p><%= f.label :deadline,"目標達成日" %></p>
+						<!-- 仮に設置 -->
+						<%= f.text_field :deadline ,class: "datepicker",autocomplete: 'off'%>
+					</div>
+					<div class="field">
+						<p><%= f.label :real_time,"1日あたりの実時間(hr)",autocomplete: 'off' %></p>
+						<%= f.select :real_time,[["1時間",60],["1時間30分",90],["2時間",120],["2時間30分",150],["3時間",180],["3時間30分",210],["4時間",240],["5時間",300],["6時間",360],["7時間",420]], :prompt => "選択してください"%>
+					</div>
+				<!-- </div> -->
+				<!-- <div class="form-button"> -->
+					<div class="actions">
+						<%= f.submit 'Set a Deadline' ,class: "btn btn-primary btn-custom" %>
+					</div>
+				<!-- </div> -->
+			<% end %>
+		</div>
+	</div>
+</div>
