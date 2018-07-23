@@ -15,7 +15,9 @@ class TasksController < ApplicationController
   end
 
   def create
+    require "date"
   	@task = current_user.tasks.new(task_params)
+    @task.start_date = Date.today
   	if @task.save
   		redirect_to task_path(@task.id)
   	else
@@ -23,10 +25,32 @@ class TasksController < ApplicationController
   	end
   end
 
-   def destroy
+  def destroy
     task = Task.find(params[:id])
     task.destroy
     redirect_to tasks_path
+  end
+
+  def complete
+    task = Task.find(params[:id])
+    task.status = 1
+    if task.save
+      redirect_to user_path(current_user.id)
+    else
+      flash[:notice] = '保存に失敗しました'
+      redirect_to tasks_path
+    end
+  end
+
+  def failed
+    task = Task.find(params[:id])
+    task.status = 2
+    if task.save
+      redirect_to user_path(current_user.id)
+    else
+      flash[:notice] = '保存に失敗しました'
+      redirect_to tasks_path
+    end
   end
 
 

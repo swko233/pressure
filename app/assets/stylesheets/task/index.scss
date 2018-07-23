@@ -12,13 +12,57 @@
 }
 .task-view{
 	height: 200px;
+	margin-bottom: 100px;
+	margin-top: 100px;
 }
+.fade-up{
+	transition: opacity 0.7s;
+	transition: transform 0.7s;
+	// ベンダープレフィックス
+	-moz-transition: opacity 0.7s;
+	-webkit-transition: opacity 0.7s;
+  	-o-transition: opacity 0.7s;
+  	 -moz-transition: transform 0.7s;
+  	-webkit-transition: transform 0.7s;
+  	-o-transition: transform 0.7s;
+}
+.fade-in{
+	transition: opacity 0.7s;
+	transition: transform 0.7s;
+}
+.animated{
+	animation-duration: 1s;
+	animation-full-mode: both;
+	animation-name: fadeInUp;
+
+}
+// .task-view:after{
+// 	width: 70%;
+// 	height: 1px;
+// 	background-color: gray;
+// }
 // #mycharts{
 // 	width: 200px;
 // 	height: 200px;
 // }
+.task-label-wrap{
+	display: flex;
+	align-items: center;
+}
+.task-label{
+	margin-bottom: 20px;
+	margin-right: 80px;
+}
+.task-text{
+
+}
+.schedule-wrap{
+	margin-bottom: 100px;
+}
+
+
 .bar-chart{
-	width: 60%;
+	width: 300px;
 	display: flex;
 	position: relative;
 	margin-top: 40px;
@@ -26,7 +70,7 @@
 .status-marker{
 	position: absolute;
 	top: -15px;
-	left: 50px;
+	left: 5px;
 	width: 15px;
 	height: 15px;
 	// background-color: white;
@@ -53,3 +97,48 @@
 	border-top-right-radius: 60px 60px;
 	border-bottom-right-radius: 60px 60px;
 }
+.time-box-wrap{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%; //親要素の高さと合わせて、バートの高さを合わせる
+}
+.rest-time-box,.real-time-box{
+	// margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.real-time-box>p,.rest-time-box>p{
+	font-size: 30px;
+}
+.button{
+	width: 150px;
+	height: 40px;
+	border-radius: 20px;
+	border: 2px solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.button.complete:hover{
+	transform: rotate(-5deg);
+}
+// .button.failed:hover{
+// 	transform: rotate(5deg);
+// }
+.complete{
+	border-color: green;
+}
+.complete > p{
+	color: green;
+	margin: 0;
+}
+.failed{
+	border-color: red;
+}
+.failed > p{
+	color: red;
+	margin: 0;
+}
+
+

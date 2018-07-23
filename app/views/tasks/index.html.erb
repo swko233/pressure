@@ -2,58 +2,90 @@
 <%= javascript_include_tag "tasks_index.js" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
-<h1>Tasks#index</h1>
-<h2>予定</h2>
-<p><%= link_to 'About',tasks_path,class: 'testes'%></p>
-<p>実質時間の表示</p>
-<p>新規作成へのリンク</p>
-<p></p>
-<p></p>
-
-<div class="container-fluid">
+<div class="container">
+	<div class="row">
+		<h1>Tasks#index</h1>
+		<h2>予定</h2>
+		<p><%= link_to 'About',tasks_path,class: 'testes'%></p>
+		<p></p>
+	</div>
 	<% @tasks.each do |task| %>
-		<div class="row task-view">
-			<div class="col-lg-12">
-				<div>
-					<%= task.schedule %>
+	 <% require "date"
+	 	task.start_date -= 3 #検証用
+	 	all_days = task.deadline - task.start_date
+	 	past_days = Date.today - task.start_date
+	 	now_pos = (past_days / all_days * 287).ceil %>
+		<div class="task-view fade-up animated">
+			<!-- <div class="row"> -->
+				<div class="col-lg-4">
+					<div class="task-label-wrap">
+						<div class="task-label">
+							<h4>叶えたいこと</h4>
+							<p class="task-text"><%= task.schedule %></p>
+						</div>
+						<div class="task-label">
+							<h4>期限</h4>
+							<p class="task-text"><%= task.deadline %></p>
+						</div>
+					</div>
+			<!-- <div class="row schedule-wrap"> -->
+				<!-- <div class="col-lg-5"> -->
+					<div class="bar-chart">
+						<div class="status-marker"></div>
+						<div class="bar-first"></div>
+						<div class="bar-second"></div>
+						<div class="bar-third"></div>
+					</div>
+					<!-- <canvas id="myChart"></canvas> -->
 				</div>
-				<div>
-					<%= task.deadline %>
+				<div class="col-lg-6 time-box-wrap">
+					<% rest_day = task.deadline - Date.today
+		      			rest = rest_day.to_i
+		     			hours = (rest * 24)
+		      			days = rest
+		      			real_hours = task.real_time/60 * days
+		      			count = [days,hours,real_hours] 
+		      			logger.debug(task.deadline)
+		      			logger.debug(Date.today)
+		      			logger.debug(rest)
+		      			logger.debug(hours)
+		      			logger.debug(days)%>
+		      		<% if rest_day > 0 %>
+						<div class="rest-time-box">
+							<h4>残り時間</h4>
+			      			<p><%= count[0].to_s + '日' + count[1].to_s + '時間' %></p>
+			      		</div>
+		      			<div class="real-time-box">
+		      				<h4>使える時間</h4>
+		      				<p><%= count[2].to_s + '時間'%></p>
+		      			</div>
+		      		<% else %>
+		      			<div class="time-up-box">
+		      				<p>終了！</p>
+		      			</div>
+		      			<div class="button-box">
+		      				<%= link_to complete_task_path(task.id) do %>
+		      					<div class="button complete">
+		      						<p class="complete-text">目標達成！</p>
+		      					</div>
+		      				<% end %>
+		      			</div>
+						<div class="button-box">
+							<%= link_to failed_task_path(task.id) do %>
+								<div class="button failed">
+									<p class="failed-text">達成ならず...</p>
+								</div>
+							<% end %>
+		      			</div>
+		      		<% end %>
+		      	</div>
+				<div class="col-lg-2">
+					<%= link_to '削除', task_path(task.id),method: :delete %>
 				</div>
-			</div>
-			<div class="col-lg-5">
-				<p>棒チャート</p>
-				<div class="bar-chart">
-					<div class="status-marker"></div>
-					<div class="bar-first"></div>
-					<div class="bar-second"></div>
-					<div class="bar-third"></div>
-				</div>
-				<!-- <canvas id="myChart"></canvas> -->
-			</div>
-			<div class="col-lg-5">
-				<p>残り時間</p>
-      				<% rest_day = task.deadline - Date.today
-      				rest = rest_day.to_i
-     				hours = (rest * 24)
-      				days = rest
-      				real_hours = task.real_time/60 * days
-      				count = [days,hours,real_hours] 
-      				logger.debug(task.deadline)
-      				logger.debug(Date.today)
-      				logger.debug(rest)
-      				logger.debug(hours)
-      				logger.debug(days)%>
-      			<p><%= count[0].to_s + '日' + count[1].to_s + '時間' %></p>
-      			<p><%= '使える時間' + count[2].to_s + '時間'%></p>
-			</div>
-			<div class="col-lg-2">
-				<%= link_to '削除', task_path(task.id),method: :delete %>
-			</div>
+			<!-- </div> -->
 		</div>
 	<% end %>
 </div>
-
 
 
 
