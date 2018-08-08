@@ -47,7 +47,7 @@
 // }
 .task-label-wrap{
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 }
 .task-label{
 	margin-bottom: 20px;
@@ -99,7 +99,7 @@
 }
 .time-box-wrap{
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-around;
 	height: 100%; //親要素の高さと合わせて、バートの高さを合わせる
 }
@@ -109,6 +109,7 @@
 }
 
 .real-time-box>p,.rest-time-box>p{
+	padding-top: 20px;
 	font-size: 30px;
 }
 .button{
